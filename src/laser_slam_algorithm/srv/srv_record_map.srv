@@ -1,0 +1,4 @@
+bool is_record_map
+string str_map_name
+---
+string feedback

@@ -1,0 +1,31 @@
+	visualization_msgs::Marker marker1;
+	marker1.header.frame_id = "/camera_init";
+	marker1.header.stamp = ros::Time::now();
+	marker1.ns = "/show_robot";
+
+	marker1.action = visualization_msgs::Marker::ADD;
+	marker1.type = visualization_msgs::Marker::MESH_RESOURCE;
+	marker1.mesh_resource = "package://path_planner/meshes/R2-D2/R2-D2.dae";
+
+
+	marker1.scale.x = 1;
+	marker1.scale.y = 1;
+	marker1.scale.z = 1;
+	marker1.lifetime = ros::Duration();
+	marker1.id =5;
+	marker1.pose.position.x=Robpose.x;
+	marker1.pose.position.y=Robpose.y;
+	marker1.pose.position.z=0;
+	marker1.pose.orientation.x = 0.0;
+	marker1.pose.orientation.y = 0.0;
+	marker1.pose.orientation.z = sin((Robpose.yaw+1.5707)/2);
+	marker1.pose.orientation.w = cos((Robpose.yaw+1.5707)/2);
+	marker1.color.a=1.0;
+	marker1.color.r = 1.0;
+	marker1.color.g = 1.0;
+	marker1.color.b = 1.0;		
+	MakerPosepub.publish(marker1);
+
+
+MakerPosepub = node.advertise<visualization_msgs::Marker>("makerpose",1);
+ros::Publisher MakerPosepub;

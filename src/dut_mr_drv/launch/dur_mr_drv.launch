@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<launch>
+
+	<arg name="SerialPortName"  default="/dev/ttyUSB0" />
+	<arg name="SerialBaudrate" 	default="115200"  />
+	
+	<arg name="WheelDistance" 	default="0.596" />
+	<arg name="WheelDiameter" 	default="0.300"  />
+	<arg name="Wheelbase" 		default="0.680"  />
+	
+	<!--arg name="BaseMethodCtrl" 		default="4"  /-->
+	<arg name="BaseMethodCtrl" 	default="132"  />
+	<arg name="SteerMotorPos" 		default="-200"  />
+	
+	<arg name="DrvMotorPwm" 		default="0"  />
+	
+	<node pkg="dut_mr_drv" type="dut_mr_drv" 	name="dut_base_link" output="screen">
+		<param name="SerialPortName" type="string" value="$(arg SerialPortName)" />		<!--与驱动器通信串口号,默认值/dev/ttyUSB0-->
+		<param name="SerialBaudrate" type="int" value="$(arg SerialBaudrate)" />		<!--串口通信波特率,默认值115200-->
+		
+		<param name="WheelDistance" type="double" 		value="$(arg WheelDistance)" />		<!-- 轮胎间距离 -->
+		<param name="WheelDiameter" type="double" 		value="$(arg WheelDiameter)" />		<!-- 轮胎直径	-->
+		<param name="Wheelbase" 	type="double" 		value="$(arg Wheelbase)" />			<!-- 小车轴距	-->	
+		
+		<remap from="cmd_vel" 					to="dut_base_link/cmd_vel"/>
+		<remap from="raw_motor_cmd" 			to="dut_base_link/raw_motor_cmd"/>
+		<remap from="/dut_base_link/hw_info" 	to="dut_base_link/hw_info"/>
+	</node>
+	
+	
+</launch>

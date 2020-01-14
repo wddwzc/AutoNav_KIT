@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<launch>	
+	<node pkg="Base_control" type="app_Controlservice" name="Control_Service" output="screen">
+		<param name="linear_factor" type="double" value="2.0"/>
+		<param name="angular_factor" type="double" value="2.0"/>
+		
+		<remap from="/base_move" to="dut_base_link/cmd_vel"/>
+	</node>
+	<node pkg="Base_control" type="Client1" name="manual_control" output="screen">
+	</node>	
+</launch>

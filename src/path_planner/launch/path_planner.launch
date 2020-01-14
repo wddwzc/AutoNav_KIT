@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<launch>	
+	<node pkg="path_planner" type="app_path_planner" name="app_path_planner" output="screen">
+		<param name="map_path" type="string" value="/home/robot/Insrob_ws/map/"/>
+
+		<remap from="Controler" to="Controler"/>
+		<remap from="/local_map" to="/local_map"/>
+		<remap from="/chatter" to="/vins_estimator/odometry"/>
+	</node>
+</launch>

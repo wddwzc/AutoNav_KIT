@@ -1,0 +1,8 @@
+<launch>
+
+  <node pkg="laser_slam_algorithm" type="register" name="register" output="screen"/>
+  <node pkg="laser_slam_algorithm" type="odom" name="odom" output="screen"/>
+  <node pkg="laser_slam_algorithm" type="mapping" name="mapping" output="screen"/>
+  <!--node pkg="laser_slam_algorithm" type="transform" name="transform" output="screen"/-->
+
+</launch>

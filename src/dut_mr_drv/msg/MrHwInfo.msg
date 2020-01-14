@@ -1,0 +1,9 @@
+uint32  mr_tick
+MotorState 	drv_mot
+MotorState 	steer_mot
+uint32 fl_wheel_adc_val_sum
+uint32 fr_wheel_adc_val_sum
+uint16 fl_wheel_adc_count
+uint16 fr_wheel_adc_count
+int32  rr_wheel_encode_val
+int32  rl_wheel_encode_val

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<launch>
+
+	<arg name="SerialPortName"  default="/dev/ttyUSB0" />
+	<arg name="SerialBaudrate" 	default="115200"  />
+	
+	<arg name="WheelDistance" 	default="0.596" />
+	<arg name="WheelDiameter" 	default="0.300"  />
+	<arg name="Wheelbase" 		default="0.680"  />
+	
+	<!--arg name="BaseMethodCtrl" 		default="4"  /-->
+	<arg name="BaseMethodCtrl" 	default="132"  />
+	<arg name="SteerMotorPos" 		default="0"  />
+	
+	<arg name="DrvMotorPwm" 		default="70"  />
+	
+
+	<node pkg="dut_mr_drv" type="dut_base_cali" 	name="dut_base_cali" output="screen">
+		<param name="WheelDistance" type="double" 		value="$(arg WheelDistance)" />		<!-- 轮胎间距离 -->
+		<param name="WheelDiameter" type="double" 		value="$(arg WheelDiameter)" />		<!-- 轮胎直径	-->
+		<param name="Wheelbase" 	type="double" 		value="$(arg Wheelbase)" />			<!-- 小车轴距	-->
+		<param name="EncoderPulseNum" type="int" 	    value="1024" />
+		
+		<param name="BaseMethodCtrl" type="int" 	value="$(arg BaseMethodCtrl)" />	
+		<param name="SteerMotorPos"  type="int" 	value="$(arg SteerMotorPos)" />		
+		<param name="DrvMotorPwm"    type="int" 	value="$(arg DrvMotorPwm)" />
+		<param name="CaliStart"      type="int" 	value="2" />
+		<param name="CaliEnd"        type="int" 	value="12" />	
+		
+	</node>
+	
+</launch>
