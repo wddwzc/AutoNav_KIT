@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+    <node pkg="gnss_driver" type="gnss_driver" name="gnss_driver" output="screen"/>
+    <node pkg="gps2odometry" type="gps2odometry" name="gps2odometry" output="screen">
+        <remap from="/chatter" to="/chatter"/>
+    </node>
+</launch>

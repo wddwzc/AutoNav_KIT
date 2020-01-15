@@ -1,4 +1,4 @@
-workspace_name="project_ws"
+workspace_name="robot_ws"
 
 basepath=$(cd `dirname $0`; pwd)
 cd $basepath

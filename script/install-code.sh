@@ -1,10 +1,10 @@
 #
-#By He Guojian 
-#2017-02
+#By Wang Zichen
+#2020-01
 #
 
 #define vars
-workspace_name="navi_ws"
+workspace_name="robot_ws"
 basepath=$(cd `dirname $0`; pwd)
 
 # 1) create catkin workspace
@@ -45,20 +45,6 @@ echo "---->2. Create pckgs and copy files...\n"
 #copy files into the folders
 echo ========================$basepath
 cd $basepath
-#cp -rf ./velodyne-master/ ~/$workspace_name/src
-#cp -rf ./camera_base-master/ ~/$workspace_name/src
-#cp -rf ./camera_info/ ~/$workspace_name/src
-#cp -rf ./flea3-master/ ~/$workspace_name/src
-#cp -rf ./gnss_driver/ ~/$workspace_name/src
-#cp -rf ./xsens_imu_driver/ ~/$workspace_name/src
-
-#cp -rf ./laser_slam_algorithm/ ~/$workspace_name/src
-#cp -rf ./server/ ~/$workspace_name/src
-
-#cp -rf kill.sh ~/$workspace_name/
-#cp -rf run-boost.sh ~/$workspace_name/
-#cp -rf run-all.sh ~/$workspace_name/
-#cp -rf run-laser-relocalization.sh ~/$workspace_name/
 
 
 cp -rf ./gnss_driver/ ~/$workspace_name/src
@@ -70,10 +56,12 @@ cp -rf ./local_map/ ~/$workspace_name/src
 cp -rf ./path_planner/ ~/$workspace_name/src
 cp -rf ./Base_control/ ~/$workspace_name/src
 cp -rf ./velodyne-master/ ~/$workspace_name/src
-cd -rf ./laser_slam_algorithm/ ~/$workspace_name/src
+cp -rf ./laser_slam_algorithm/ ~/$workspace_name/src
 
 cp -rf kill.sh ~/$workspace_name/
 cp -rf run-all.sh ~/$workspace_name/
+cp -rf run-data.sh ~/$workspace_name/
+cp -rf run-gps.sh ~/$workspace_name/
 
 mkdir -p ~/$workspace_name/log/
 mkdir -p ~/$workspace_name/map/
@@ -100,6 +88,4 @@ catkin_make --pkg path_planner
 catkin_make --pkg velodyne-master
 catkin_make --pkg laser_slam_algorithm
 
-
 echo "---->OK!   Install Completely.\n"
-
