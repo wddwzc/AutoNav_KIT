@@ -3,9 +3,9 @@
 
 **run-all.sh**:run all sensor driver node except gps
 
-**run-gps.sh**:run gps and its data transform node
+**run-gps.sh**:run gps and its data transform node (GPS node need to be shut down normally. Background process is forbidden.)
 
-**kill.sh**:kill nodes
+**kill.sh**:kill process
 
 If you want to run the base node and collect data:
 ```
