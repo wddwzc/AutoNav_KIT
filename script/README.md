@@ -1,7 +1,10 @@
 # User Guide
 **install-code.sh**:move code to new directory and install
+
 **run-all.sh**:run all sensor driver node except gps
+
 **run-gps.sh**:run gps and its data transform node
+
 **kill.sh**:kill nodes
 
 If you want to run the base node and collect data:
